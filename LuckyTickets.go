@@ -1,12 +1,13 @@
 package main
 
-import "fmt"
-
-func main() {
-	GetTicketsBy2NDigitsNumber(3)
+type LuckyTicketsInterface interface {
+	Test(N int) int
 }
 
-func GetTicketsBy2NDigitsNumber(N int) {
+type LuckyTickets struct {
+}
+
+func (l *LuckyTickets) GetTicketsBy2NDigitsNumber(N int) int {
 	baseArr := []int{1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
 	var arr []int
 	arr = baseArr
@@ -17,7 +18,7 @@ func GetTicketsBy2NDigitsNumber(N int) {
 	for _, possibleSum := range arr {
 		result += possibleSum * possibleSum
 	}
-	fmt.Println(result)
+	return result
 }
 
 func nextArr(prevArr []int) []int {
@@ -36,8 +37,6 @@ func nextArr(prevArr []int) []int {
 	return nextArr
 }
 
-/// xxx0
-/// 0 -> 0000
-/// 1 -> 1000 0100 0010
-/// 2 -> 1100 0110 0020 2000 0200 1010
-///
+func (l *LuckyTickets) Test(N int) int {
+	return l.GetTicketsBy2NDigitsNumber(N)
+}
