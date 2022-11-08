@@ -9,6 +9,7 @@ import (
 )
 
 func main() {
+	LuckyTicketsFor6DigitsNumber()
 	tests()
 }
 
