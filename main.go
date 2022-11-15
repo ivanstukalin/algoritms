@@ -9,13 +9,15 @@ import (
 )
 
 func main() {
-	LuckyTicketsFor6DigitsNumber()
 	tests()
 }
 
 func tests() {
-	TestLuckyTickets("LuckyTickets")
+	// LuckyTicketsFor6DigitsNumber()
+	// TestLuckyTickets("LuckyTickets")
 	TestIterationExponentiation()
+	TestFibonacci()
+	TestPrimeNumbers()
 }
 
 func TestLuckyTickets(testName string) {
@@ -31,7 +33,18 @@ func TestLuckyTickets(testName string) {
 
 func TestIterationExponentiation() {
 	e := Exponentiation{}
-	fmt.Println(e.Test(2, 8) == 256)
+	fmt.Println("Возведение в степень: ", e.Test(2, 8) == 256)
+}
+
+func TestFibonacci() {
+	f := Fibonacci{}
+	fmt.Println("Фибоначчи итеративный: ", f.Test(9) == 34)
+	fmt.Println("Фибоначчи рекурсивный: ", f.TestFibonacciRecursive(8) == 21)
+}
+
+func TestPrimeNumbers() {
+	p := PrimeNumbers{}
+	fmt.Println("Простые числа O(n^2): ", p.TestPrimeNumbersIn(100) == 25)
 }
 
 func readFromFile(fileName string) string {
