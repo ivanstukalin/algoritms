@@ -14,10 +14,11 @@ func main() {
 }
 
 func tests() {
-	test("LuckyTickets")
+	TestLuckyTickets("LuckyTickets")
+	TestIterationExponentiation()
 }
 
-func test(testName string) {
+func TestLuckyTickets(testName string) {
 	luckyTickets := LuckyTickets{}
 	for i := 0; i <= 9; i++ {
 		N, _ := strconv.Atoi(readFromFile("test_data/" + testName + "/test." + strconv.Itoa(i) + ".in"))
@@ -26,6 +27,11 @@ func test(testName string) {
 
 		fmt.Println(i, ": ", result == validValue)
 	}
+}
+
+func TestIterationExponentiation() {
+	e := Exponentiation{}
+	fmt.Println(e.Test(2, 8) == 256)
 }
 
 func readFromFile(fileName string) string {
