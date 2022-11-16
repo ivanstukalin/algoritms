@@ -34,6 +34,8 @@ func TestLuckyTickets(testName string) {
 func TestIterationExponentiation() {
 	e := Exponentiation{}
 	fmt.Println("Возведение в степень: ", e.Test(2, 8) == 256)
+	fmt.Println("Возведение в степень через степени двойки: ", e.TestExponentiationDegreeOfTwo(2, 9) == 512)
+	fmt.Println("Возведение в степень log(N): ", e.TestExponentiationLogN(5, 20) == 95367431640625)
 }
 
 func TestFibonacci() {
