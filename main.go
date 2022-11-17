@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+	"time"
 )
 
 func main() {
@@ -42,11 +43,36 @@ func TestFibonacci() {
 	f := Fibonacci{}
 	fmt.Println("Фибоначчи итеративный: ", f.Test(9) == 34)
 	fmt.Println("Фибоначчи рекурсивный: ", f.TestFibonacciRecursive(8) == 21)
+	fmt.Println("Фибоначчи золотое сечение: ", f.TestFibonacciGold(9) == 34)
+	fmt.Println("Фибоначчи с помощью матриц: ", f.TestFibonacciMatrix(10) == 21+34)
 }
 
 func TestPrimeNumbers() {
 	p := PrimeNumbers{}
-	fmt.Println("Простые числа O(n^2): ", p.TestPrimeNumbersIn(100) == 25)
+	counts := []int{10, 100, 1000, 10000, 100000}
+
+	fmt.Println("Простые числа O(n^2): ")
+	for _, count := range counts {
+		start := time.Now()
+		fmt.Println(count, "->: ", p.TestPrimeNumbersIn(count))
+		fmt.Println(time.Since(start))
+	}
+	counts = []int{10, 100, 1000, 10000, 100000, 1000000, 10000000}
+	for _, count := range counts {
+		start := time.Now()
+		fmt.Println(count, "->: ", p.TestPrimeNumbersSqrt(count))
+		fmt.Println(time.Since(start))
+	}
+	for _, count := range counts {
+		start := time.Now()
+		fmt.Println(count, "->: ", p.TestPrimeNumbersByPrimeNumbers(count))
+		fmt.Println(time.Since(start))
+	}
+	for _, count := range counts {
+		start := time.Now()
+		fmt.Println(count, "->: ", p.TestPrimeNumbersEratosthenes(count))
+		fmt.Println(time.Since(start))
+	}
 }
 
 func readFromFile(fileName string) string {

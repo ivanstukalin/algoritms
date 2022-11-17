@@ -8,6 +8,7 @@ type ExponentiationInterface interface {
 	Test(num int, degree int) int
 	TestExponentiationDegreeOfTwo(num int, degree int) int
 	TestExponentiationLogN(num int, degree int) int
+	MatrixExponentiationLogN(matrix [][]int, degree int) [][]int
 }
 
 type Exponentiation struct {
@@ -36,12 +37,35 @@ func exponentiationDegreeOfTwo(num int, degree int) int {
 
 func exponentiationLogN(num int, degree int) int {
 	result := 1
+	if degree%2 > 0 {
+		result *= num
+	}
 	temp := num
-	for degree > 1 {
+	for degree >= 1 {
 		degree = int(degree / 2)
 		temp = temp * temp
-		if degree%2 != 0 {
+		if degree%2 > 0 {
 			result *= temp
+		}
+	}
+	return result
+}
+
+func (e *Exponentiation) MatrixExponentiationLogN(matrix [][]int, degree int) [][]int {
+	result := [][]int{
+		{1, 0},
+		{0, 1},
+	}
+	m := Matrix{}
+	if degree%2 > 0 {
+		result = m.MatrixMultiplication2x2(result, matrix)
+	}
+	temp := matrix
+	for degree >= 1 {
+		degree = int(degree / 2)
+		temp = m.MatrixMultiplication2x2(temp, temp)
+		if degree%2 != 0 {
+			result = m.MatrixMultiplication2x2(result, temp)
 		}
 	}
 	return result
