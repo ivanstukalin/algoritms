@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"bytes"
 	"fmt"
+	"homework/structures"
 	"os"
 	"strconv"
 	"time"
@@ -14,8 +15,15 @@ func main() {
 }
 
 func tests() {
-	// LuckyTicketsFor6DigitsNumber()
-	// TestLuckyTickets("LuckyTickets")
+	structures.Tests()
+}
+
+func BaseTests() {
+	LuckyTicketsFor6DigitsNumber()
+	TestLuckyTickets("LuckyTickets")
+}
+
+func TestBaseAlgorithms() {
 	TestIterationExponentiation()
 	TestFibonacci()
 	TestPrimeNumbers()
