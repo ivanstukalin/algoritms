@@ -8,11 +8,11 @@ import (
 )
 
 func Tests() {
-	// testSingleArray()
-	// testVectorArray()
-	// testFactorArray()
-	// testMatrixArray()
-	// testArrayList()
+	testSingleArray()
+	testVectorArray()
+	testFactorArray()
+	testMatrixArray()
+	testArrayList()
 	testPQueue()
 }
 
