@@ -8,11 +8,12 @@ import (
 )
 
 func Tests() {
-	testSingleArray()
-	testVectorArray()
-	testFactorArray()
-	testMatrixArray()
-	testArrayList()
+	// testSingleArray()
+	// testVectorArray()
+	// testFactorArray()
+	// testMatrixArray()
+	// testArrayList()
+	testPQueue()
 }
 
 func testSingleArray() {
@@ -86,4 +87,16 @@ func testDeleteOne(array ArrayInterface, index int) {
 	start := time.Now()
 	result := array.DeleteOne(index)
 	fmt.Println("Удаленное значение: ", result, ", время выполнения: ", time.Since(start))
+}
+
+func testPQueue() {
+	pqueue := PQueue{}
+	pqueue.Enqueue(1, 1)
+	pqueue.Enqueue(2, 2)
+	pqueue.Enqueue(3, 1)
+	pqueue.Enqueue(4, 1)
+	fmt.Println(pqueue.Dequeue(1))
+	fmt.Println(pqueue.Dequeue(1))
+	fmt.Println(pqueue.Dequeue(1))
+	fmt.Println(pqueue.Dequeue(1))
 }
